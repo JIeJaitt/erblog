@@ -1,0 +1,323 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JIeJaitt‘s Blog - First ｜hugo原理理解 </title>
+    
+    
+    <meta content="JIeJaitt‘s Blog" name="keywords">
+    
+    <meta content="JIeJaitt‘s Blog - Hello Hugo erblog.pages.dev https://www.elliot98.top/ https://dash.cloudflare.com/7c63601e43e79bf455b76fde5d8e4251 class Solution { public: double angleClock(int hour, int minutes) { double res; double res_hour = hour*30&#43;minutes/2.0; double res_min = minutes * 6; res = max(res_hour,res_min) - min(res_hour,res_min); res = min(res,360-res); return res; } }; baseURL = &#39;http://example.org/&#39; title = &#39;JIeJaitt‘s Blog&#39; theme = &#39;erblog&#39; paginate = 3 languageCode = &#39;en-us&#39; DefaultContentLanguage = &#34;en&#34; footnoteReturnLinkContents = &#34;^&#34; uglyurls = true [permalinks] posts = &#34;:slug&#34; [blackfriday] extensionsmask = [&#34;noIntraEmphasis&#34;] fractions = false [markup." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+        <link rel="icon" href="/self/img/avater.jpg">
+    
+
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src=" /layui/layui.js"></script>
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" integrity="sha256-PZEg+mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys=" crossorigin="anonymous"></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        JIeJaitt‘s Blog
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+            
+                <li class="layui-nav-item" id="nav_big"><a href="/about/">About</a></li>
+            
+                <li class="layui-nav-item" id="nav_big"><a href="/zone/">Zone</a></li>
+            
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+                    
+                        <dd><a href="/about/">About</a></dd>
+                    
+                        <dd><a href="/zone/">Zone</a></dd>
+                    
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="self-elem-quote self-elem-quote-bg-black markdown-body single-title" >
+                    <h1>First ｜hugo原理理解</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-18</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <h3 id="hello-hugo">Hello Hugo</h3>
+<ul>
+<li>erblog.pages.dev</li>
+<li><a href="https://www.elliot98.top/">https://www.elliot98.top/</a></li>
+<li><a href="https://dash.cloudflare.com/7c63601e43e79bf455b76fde5d8e4251">https://dash.cloudflare.com/7c63601e43e79bf455b76fde5d8e4251</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> angleClock(<span style="color:#66d9ef">int</span> hour, <span style="color:#66d9ef">int</span> minutes) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> res;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> res_hour <span style="color:#f92672">=</span> hour<span style="color:#f92672">*</span><span style="color:#ae81ff">30</span><span style="color:#f92672">+</span>minutes<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> res_min <span style="color:#f92672">=</span> minutes <span style="color:#f92672">*</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span>  max(res_hour,res_min) <span style="color:#f92672">-</span> min(res_hour,res_min);
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> min(res,<span style="color:#ae81ff">360</span><span style="color:#f92672">-</span>res);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#39;http://example.org/&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#39;JIeJaitt‘s Blog&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#39;erblog&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">paginate</span> = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#39;en-us&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">DefaultContentLanguage</span> = <span style="color:#e6db74">&#34;en&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">footnoteReturnLinkContents</span> = <span style="color:#e6db74">&#34;^&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">uglyurls</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">permalinks</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">posts</span> = <span style="color:#e6db74">&#34;:slug&#34;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">blackfriday</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">extensionsmask</span> = [<span style="color:#e6db74">&#34;noIntraEmphasis&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fractions</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#39;JIeJaitt&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">badge</span> = <span style="color:#e6db74">&#34;orange&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">quote</span> = <span style="color:#e6db74">&#34;black&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">index_posts_num</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">google_search</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">logo</span> = <span style="color:#e6db74">&#39;/self/img/avater.jpg&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">portrait</span> = <span style="color:#e6db74">&#39;/self/img/avater.jpg&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#39;八股文康复训练&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">favicon</span> = <span style="color:#e6db74">&#39;/self/img/avater.jpg&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">bio</span> = <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;p&gt; This is BIO. You can write something here. &lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;br /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;p&gt;Also all html tags such as &lt;a href=&#34;</span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">ertuil</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">erblog</span><span style="color:#e6db74">&#34;&gt;link&lt;/a&gt; are a good here.&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">taxonomies</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">category</span> = <span style="color:#e6db74">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tag</span> = <span style="color:#e6db74">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">series</span> = <span style="color:#e6db74">&#34;series&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">icon</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;mailto:jiejaitt@mail.com&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;envelope-o&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">icon</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://github.com/jiejaitt/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;github&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">icon</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://twitter.com/jiejaitt/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;twitter&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">icon</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://www.instagram.com/jiejaitt/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;instagram&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div>
+    <h4 style="color:#fff">JIeJaitt保留对侵权者及其全家发动因果律武器的权利</h4>
+    <h2><strong>版权提醒</strong></h2>
+    <p>如无特殊申明，本站所有文章均是本人原创。转载请务必附上原文链接：<a
+            href="https://jiejaitt.pages.dev/post/first.html">https://jiejaitt.pages.dev/post/first.html</a>。如有其它需要，请邮件联系！<strong>版权所有，违者必究！</strong>
+    </p>
+    <p></p>
+</div></div>
+            </div>
+        </div>
+
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            
+
+            <div class="layui-card single-card">
+                <h2 class="single-title">Recent Posts</h2>
+            
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/%E7%BA%AFpython%E5%AE%9E%E7%8E%B0cnn%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E4%BD%93%E6%95%B0%E5%AD%97&#43;gui%E5%B1%95%E7%A4%BA-mnist%E6%95%B0%E6%8D%AE%E9%9B%86.html">
+                        <h3 class="">纯Python实现CNN识别手写体数字&#43;GUI展示 MNIST数据集</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-21</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/first.html">
+                        <h3 class="">First ｜hugo原理理解</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-18</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/simpread-tcp%E5%92%8Cudp%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88.html">
+                        <h3 class="">simpread-TCP和Udp的区别是什么？.md</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-18</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/%E5%A6%82%E4%BD%95%E4%BB%8B%E7%BB%8D%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%BA%94%E5%AF%B9%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82%E8%BF%BD%E9%97%AE.html">
+                        <h3 class="">如何介绍项目及应对项目细节追问</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-17</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+            
+            <br />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        </div><footer>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">&copy; All rights reserved. Powered by <a href='https://gohugo.io' style='color:#FFFFFF'>Hugo</a> and <a href='https://github.com/ertuil/erblog' style='color:#FFFFFF'>Erblog</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>

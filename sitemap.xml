@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/zone/3.html</loc>
+    <loc>https://jiejaitt.pages.dev/post/first.html</loc>
+    <lastmod>2022-12-18T23:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/</loc>
+    <lastmod>2022-12-21T14:41:33+08:00</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/post.html</loc>
+    <lastmod>2022-12-21T14:41:33+08:00</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/post/%E7%BA%AFpython%E5%AE%9E%E7%8E%B0cnn%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E4%BD%93%E6%95%B0%E5%AD%97&#43;gui%E5%B1%95%E7%A4%BA-mnist%E6%95%B0%E6%8D%AE%E9%9B%86.html</loc>
+    <lastmod>2022-12-21T14:41:33+08:00</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/post/simpread-tcp%E5%92%8Cudp%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88.html</loc>
+    <lastmod>2022-12-18T23:08:25+08:32</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/post/%E5%A6%82%E4%BD%95%E4%BB%8B%E7%BB%8D%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%BA%94%E5%AF%B9%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82%E8%BF%BD%E9%97%AE.html</loc>
+    <lastmod>2022-12-17T23:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://jiejaitt.pages.dev/zone/3.html</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://jiejaitt.pages.dev/zone.html</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zone.html</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://example.org/zone/1.html</loc>
+    <loc>https://jiejaitt.pages.dev/zone/1.html</loc>
     <lastmod>2019-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zone/2.html</loc>
+    <loc>https://jiejaitt.pages.dev/zone/2.html</loc>
     <lastmod>2019-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/about.html</loc>
+    <loc>https://jiejaitt.pages.dev/about.html</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories.html</loc>
+    <loc>https://jiejaitt.pages.dev/categories.html</loc>
   </url><url>
-    <loc>http://example.org/series.html</loc>
+    <loc>https://jiejaitt.pages.dev/series.html</loc>
   </url><url>
-    <loc>http://example.org/tags.html</loc>
+    <loc>https://jiejaitt.pages.dev/tags.html</loc>
   </url>
 </urlset>

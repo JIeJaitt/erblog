@@ -1,0 +1,295 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JIeJaitt‘s Blog - 纯Python实现CNN识别手写体数字&#43;GUI展示 MNIST数据集 </title>
+    
+    
+    <meta content="JIeJaitt‘s Blog" name="keywords">
+    
+    <meta content="JIeJaitt‘s Blog - 开发环境：Python3 &#43; Numpy &#43; PyQt5 在项目中，mnist_cnn_gui_main.py是主程序，运行这个文件即可执行整个项目。
+手写数字识别研究的难点在于:
+第一,不同数字之间字形相差不大,使得准确区分某些数字相当困难; 第二,数字虽然只有十种,而且笔划简单,但同一数字写法千差万别。使得手写数字识别的识别率和识别精度很低。 本设计主要分为三大步骤:
+第一阶段,预处理; 第二阶段,特征提取; 第三阶段,分类器设计及识别。 第一阶段预处理阶段主要包括定位、二值化、去噪、切分、大小规格化、 细化等步骤,这里将采用一些成熟的算法。 第二阶段手写数字特征的提取结构化特征时主要根据图像像素的走向 ,准确判断出某段数字或字母的结构,如直线、折线、曲线、分叉线等。同时配合中线 特征等建立起较为准确的特征库。 第三阶段分类器设计及识别时将采用 BP神经网络算法设计分类器,通过。 这些算法本身的高容错率和算法本身的模糊判断等特性,再结合之前建立起的准确的特征库,从而提高手写数字识别时的正确率,达到理想的识别效果。
+数据集的来源： MNIST 数据集来自美国国家标准与技术研究所, National Institute of Standards and Technology (NIST). 训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员. 测试集(test set) 也是同样比例的手写数字数据。数据集下载网址：http://yann.lecun.com/exdb/mnist/
+算法原理 k-近邻（kNN, k-NearestNeighbor）算法是一种基本分类与回归方法，通俗点来说，就是给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，这 k 个实例的多数属于某个类，就把该输入实例分为这个类。 python 第三方库scikit-learn(sklearn)提供了knn的分类器。
+手写数字识别是KNN算法一个特别经典的实例，其数据源获取方式有两种，一种是来自MNIST数据集，另一种是从UCI欧文大学机器学习存储库中下载，本文基于后者讲解该例。 基本思想就是利用KNN算法推断出如下图一个32x32的二进制矩阵代表的数字是处于0-9之间哪一个数字。
+MNIST手写数字数据库（Mixed National Institute of Standards and Technology database）包含70000张手写数字图片。这些数字是通过美国国家统计局的员工和美国高校的学生收集的。每张图片都是28x28的灰度图。
+用mnist数据集训练出一个knn分类器，对新输入的手写数字进行识别。
+源码解析 数据的预处理：为了分析我们的数据并从中提取见解，有必要在开始建立机器学习模型之前对数据进行处理，即我们需要以模型可以理解的形式转换数据。由于机器无法理解图像，音频等形式的数据。在本次实验中，我们使用了官网上已经分析好的数据集，不需要重新进行数据预处理即可进行试验。但是，还是需要包装一些调用数据集的函数。" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+        <link rel="icon" href="/self/img/avater.jpg">
+    
+
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src=" /layui/layui.js"></script>
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" integrity="sha256-PZEg+mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys=" crossorigin="anonymous"></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+        <a href=""><img src="/self/img/avater.jpg" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
+    
+    
+    <a class="nav-self-logo" href="/">
+        JIeJaitt‘s Blog
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+            
+                <li class="layui-nav-item" id="nav_big"><a href="/about/">About</a></li>
+            
+                <li class="layui-nav-item" id="nav_big"><a href="/zone/">Zone</a></li>
+            
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+                    
+                        <dd><a href="/about/">About</a></dd>
+                    
+                        <dd><a href="/zone/">Zone</a></dd>
+                    
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="self-elem-quote self-elem-quote-bg-black markdown-body single-title" >
+                    <h1>纯Python实现CNN识别手写体数字&#43;GUI展示 MNIST数据集</h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-21</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <p>开发环境：Python3 + Numpy + PyQt5
+在项目中，<code>mnist_cnn_gui_main.py</code>是主程序，运行这个文件即可执行整个项目。</p>
+<p>手写数字识别研究的难点在于:</p>
+<ul>
+<li>第一,不同数字之间字形相差不大,使得准确区分某些数字相当困难;</li>
+<li>第二,数字虽然只有十种,而且笔划简单,但同一数字写法千差万别。使得手写数字识别的识别率和识别精度很低。</li>
+</ul>
+<p>本设计主要分为三大步骤:</p>
+<ul>
+<li>第一阶段,预处理;</li>
+<li>第二阶段,特征提取;</li>
+<li>第三阶段,分类器设计及识别。
+第一阶段预处理阶段主要包括定位、二值化、去噪、切分、大小规格化、 细化等步骤,这里将采用一些成熟的算法。
+第二阶段手写数字特征的提取结构化特征时主要根据图像像素的走向 ,准确判断出某段数字或字母的结构,如直线、折线、曲线、分叉线等。同时配合中线 特征等建立起较为准确的特征库。
+第三阶段分类器设计及识别时将采用 BP神经网络算法设计分类器,通过。</li>
+</ul>
+<p>这些算法本身的高容错率和算法本身的模糊判断等特性,再结合之前建立起的准确的特征库,从而提高手写数字识别时的正确率,达到理想的识别效果。</p>
+<p>数据集的来源：
+MNIST 数据集来自美国国家标准与技术研究所, National Institute of Standards and Technology (NIST). 训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员. 测试集(test set) 也是同样比例的手写数字数据。数据集下载网址：http://yann.lecun.com/exdb/mnist/</p>
+<h2 id="算法原理">算法原理</h2>
+<p>k-近邻（kNN, k-NearestNeighbor）算法是一种基本分类与回归方法，通俗点来说，就是给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，这 k 个实例的多数属于某个类，就把该输入实例分为这个类。
+python 第三方库scikit-learn(sklearn)提供了knn的分类器。</p>
+<p>手写数字识别是KNN算法一个特别经典的实例，其数据源获取方式有两种，一种是来自MNIST数据集，另一种是从UCI欧文大学机器学习存储库中下载，本文基于后者讲解该例。 基本思想就是利用KNN算法推断出如下图一个32x32的二进制矩阵代表的数字是处于0-9之间哪一个数字。</p>
+<p>MNIST手写数字数据库（Mixed National Institute of Standards and Technology database）包含70000张手写数字图片。这些数字是通过美国国家统计局的员工和美国高校的学生收集的。每张图片都是28x28的灰度图。</p>
+<p>用mnist数据集训练出一个knn分类器，对新输入的手写数字进行识别。</p>
+<h2 id="源码解析">源码解析</h2>
+<p>数据的预处理：为了分析我们的数据并从中提取见解，有必要在开始建立机器学习模型之前对数据进行处理，即我们需要以模型可以理解的形式转换数据。由于机器无法理解图像，音频等形式的数据。在本次实验中，我们使用了官网上已经分析好的数据集，不需要重新进行数据预处理即可进行试验。但是，还是需要包装一些调用数据集的函数。</p>
+<h2 id="算法讲解">算法讲解</h2>
+<p>算法的选择：使用神经网络算法将数据集进行分类，采集不同图片和对应的标签，分析图片和标签的相关性，后续可根据图片解析出图片属于哪一类标签，即可得到识别出的数字（算法只是算出图片和每个数字的相似度，最后是反馈回一个相似度最大的标签）。</p>
+<ul>
+<li>收集数据：公开数据源</li>
+<li>分析数据，构思如何处理数据</li>
+<li>导入训练数据，转化为结构化的数据格式</li>
+<li>计算距离（欧式距离）</li>
+<li>导入测试数据，计算模型准确率</li>
+<li>手写数字，实际应用模型
+由于所有数据皆由0和1构成，所以不需要数据标准化和归一化这一步骤</li>
+</ul>
+<div>
+    <h4 style="color:#fff">JIeJaitt保留对侵权者及其全家发动因果律武器的权利</h4>
+    <h2><strong>版权提醒</strong></h2>
+    <p>如无特殊申明，本站所有文章均是本人原创。转载请务必附上原文链接：<a
+            href="https://jiejaitt.pages.dev/post/%E7%BA%AFpython%E5%AE%9E%E7%8E%B0cnn%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E4%BD%93%E6%95%B0%E5%AD%97&#43;gui%E5%B1%95%E7%A4%BA-mnist%E6%95%B0%E6%8D%AE%E9%9B%86.html">https://jiejaitt.pages.dev/post/%E7%BA%AFpython%E5%AE%9E%E7%8E%B0cnn%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E4%BD%93%E6%95%B0%E5%AD%97&#43;gui%E5%B1%95%E7%A4%BA-mnist%E6%95%B0%E6%8D%AE%E9%9B%86.html</a>。如有其它需要，请邮件联系！<strong>版权所有，违者必究！</strong>
+    </p>
+    <p></p>
+</div></div>
+            </div>
+        </div>
+
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            
+
+            <div class="layui-card single-card">
+                <h2 class="single-title">Recent Posts</h2>
+            
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/%E7%BA%AFpython%E5%AE%9E%E7%8E%B0cnn%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E4%BD%93%E6%95%B0%E5%AD%97&#43;gui%E5%B1%95%E7%A4%BA-mnist%E6%95%B0%E6%8D%AE%E9%9B%86.html">
+                        <h3 class="">纯Python实现CNN识别手写体数字&#43;GUI展示 MNIST数据集</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-21</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/first.html">
+                        <h3 class="">First ｜hugo原理理解</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-18</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/simpread-tcp%E5%92%8Cudp%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88.html">
+                        <h3 class="">simpread-TCP和Udp的区别是什么？.md</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-18</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-black" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/%E5%A6%82%E4%BD%95%E4%BB%8B%E7%BB%8D%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%BA%94%E5%AF%B9%E9%A1%B9%E7%9B%AE%E7%BB%86%E8%8A%82%E8%BF%BD%E9%97%AE.html">
+                        <h3 class="">如何介绍项目及应对项目细节追问</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2022-12-17</span>
+
+    
+    
+
+    
+
+    
+
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+            
+            <br />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        </div><footer>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">&copy; All rights reserved. Powered by <a href='https://gohugo.io' style='color:#FFFFFF'>Hugo</a> and <a href='https://github.com/ertuil/erblog' style='color:#FFFFFF'>Erblog</a>.</p>
+    </div>
+</footer>
+
+</body>
+</html>

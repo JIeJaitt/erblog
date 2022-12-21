@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JIeJaitt‘s Blog</title>
-    <link>https://jiejaitt.pages.dev/</link>
-    <description>Recent content on JIeJaitt‘s Blog</description>
+    <title>Posts on JIeJaitt‘s Blog</title>
+    <link>https://jiejaitt.pages.dev/post.html</link>
+    <description>Recent content in Posts on JIeJaitt‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Dec 2022 14:41:33 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Dec 2022 14:41:33 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First ｜hugo原理理解</title>
       <link>https://jiejaitt.pages.dev/post/first.html</link>
@@ -79,44 +79,6 @@ TCP 的数据大小如果大于 MSS 大小，则会在传输层进行分片，�
 有没有遇见过类似的项目 有没有读过类似解决方案的文章 项目能不能拆解，拆解过程中能不能发现自己做过的项目可以用 项目解决的问题是什么，这类问题有没有更好的解决方案 总之，切记不要一句「不知道、没做过」就放弃，每一次提问都是自己表现的机会。
 项目细节和技术点的追问 介绍项目的过程中，面试官可能会追问技术细节，所以我们在准备面试的时候，应该尽量把技术细节梳理清楚，技术细节包括：
 技术选型方案：当时做技术选型所面临的状况 技术解决方案：最终确定某种技术方案的原因，比如：选择用 Vue 而没有用 React 是为什么？ 项目数据和收益 项目中最难的地方 遇见的坑：如使用某种框架遇见哪些坑 一般来说，做技术选型的时候需要考虑下面几个因素：</description>
-    </item>
-    
-    <item>
-      <title>Happy Birthday to BM</title>
-      <link>https://jiejaitt.pages.dev/zone/3.html</link>
-      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jiejaitt.pages.dev/zone/3.html</guid>
-      <description>A scholarship A letter from my email says that I have got a scholarship.</description>
-    </item>
-    
-    <item>
-      <title>Happy Birthday to BM</title>
-      <link>https://jiejaitt.pages.dev/zone/1.html</link>
-      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jiejaitt.pages.dev/zone/1.html</guid>
-      <description>Happy Birthday to BM! Happy Birthday to you, Be happy and healthy!</description>
-    </item>
-    
-    <item>
-      <title>I got my first salary</title>
-      <link>https://jiejaitt.pages.dev/zone/2.html</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jiejaitt.pages.dev/zone/2.html</guid>
-      <description>I got my first salary In this semester, I am a TA for C Language Programming. Today I got my first salary in my life. I felt proud of myself.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://jiejaitt.pages.dev/about.html</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jiejaitt.pages.dev/about.html</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
-https://github.com/russross/blackfriday https://github.</description>
     </item>
     
   </channel>
