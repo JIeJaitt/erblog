@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://example.org/zone/3.html</loc>
+    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/zone.html</loc>
+    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/zone/1.html</loc>
+    <lastmod>2019-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/zone/2.html</loc>
+    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/about.html</loc>
+    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://example.org/categories.html</loc>
+  </url><url>
+    <loc>http://example.org/series.html</loc>
+  </url><url>
+    <loc>http://example.org/tags.html</loc>
+  </url>
+</urlset>
