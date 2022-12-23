@@ -6,7 +6,7 @@
     <description>Recent content in Posts on JIeJaitt‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Dec 2022 19:51:31 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Dec 2022 20:19:39 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First ｜hugo原理理解</title>
       <link>https://jiejaitt.pages.dev/post/first.html</link>
@@ -14,6 +14,19 @@
       
       <guid>https://jiejaitt.pages.dev/post/first.html</guid>
       <description>Hello Hugo erblog.pages.dev https://www.elliot98.top/ https://dash.cloudflare.com/7c63601e43e79bf455b76fde5d8e4251 class Solution { public: double angleClock(int hour, int minutes) { double res; double res_hour = hour*30+minutes/2.0; double res_min = minutes * 6; res = max(res_hour,res_min) - min(res_hour,res_min); res = min(res,360-res); return res; } }; baseURL = &amp;#39;http://example.org/&amp;#39; title = &amp;#39;JIeJaitt‘s Blog&amp;#39; theme = &amp;#39;erblog&amp;#39; paginate = 3 languageCode = &amp;#39;en-us&amp;#39; DefaultContentLanguage = &amp;#34;en&amp;#34; footnoteReturnLinkContents = &amp;#34;^&amp;#34; uglyurls = true [permalinks] posts = &amp;#34;:slug&amp;#34; [blackfriday] extensionsmask = [&amp;#34;noIntraEmphasis&amp;#34;] fractions = false [markup.</description>
+    </item>
+    
+    <item>
+      <title>Git如何帮助我们阅读开源项目以及我们如何参与开源项目</title>
+      <link>https://jiejaitt.pages.dev/post/git%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E6%88%91%E4%BB%AC%E9%98%85%E8%AF%BB%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%BB%A5%E5%8F%8A%E6%88%91%E4%BB%AC%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE.html</link>
+      <pubDate>Fri, 23 Dec 2022 20:19:39 +0800</pubDate>
+      
+      <guid>https://jiejaitt.pages.dev/post/git%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E6%88%91%E4%BB%AC%E9%98%85%E8%AF%BB%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%BB%A5%E5%8F%8A%E6%88%91%E4%BB%AC%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE.html</guid>
+      <description>阅读开源代码小技巧——Git历史记录快速翻页式签出 通过阅读源码来学习开源项目是最直接也最有效的方法。而想要了解一个开源项目，最好是从第一个 commit 开始看起，特别是第一个最小可用版本发布前的 commits, 通过阅读对每一次 commit 提交源码，能够最直接的理解作者的设计思路和开发过程中的思考。
+在 GitHub 的 repository 页面上可以很方便的看到所有历史记录及其演进。不过，使用 IDE 或有跳转功能的编辑器来阅读会更方便。这就需要我们将代码仓 Clone 到本地。
+Clone 下来的开源 Git 仓，想要签出第一次 commit 也简单：通过 git log --reverse 倒序展示 log,排在第一个的即是第一次 commit, 拷贝 commit sha 值，然后 git checkout commit_sha 便可以签出该commit的代码。
+当我们想继续跟着作者的节奏看接来下开发的内容，便需要再次 show log, 并找出下一次的 commit sha 值，如果 commit 记录很多，找起来就不那么容易了。因此我在看 git 代码历史的时候想，能不能将 git commits 历史记录当成像网站页面一样可以分页查看呢，通过简单的上翻下翻命令来 checkout 到各 commit 节点的代码。
+其实也不难，无非是用管道将上面提到的命令串起来，写成 shell 可执行文件放到 git 安装的 bin 目录即可。签出第一次 Commit 节点代码的 shell 脚本如下：（通过 git log --reverse --pretty=%H 可以将 log 记录倒序并只显示sha值，然后通过 args 获取管道输出 checkout.</description>
     </item>
     
     <item>
@@ -25,7 +38,8 @@
       <description>面试宝典现在叫八股文。说实话挺反感面试应届面这东西的。这些根本不算知识最多算知道。 你无法要求所有人都看过JDK源码， 能够明白工作原理或者快速设计一个类似的的时间就行了。 真正需要考核的是候选人是解决问题的能力， 知识面的广度以及特定场景技术选型的思路。
 这种八股文最多算一个门槛， 考察的是你至少肯花时间背了或者了解了。稍微有点经验的面试官就会根据你的回答深挖下去， 例如HashMap 候选人提到了红黑树， 那么就会顺着问红黑树左旋、右旋、变色相关的问题， 在询问红黑树和平衡二叉树的区别， 特定业务场景的选型。
 所以无论什么知识最重要的是结合业务，拥抱变化！
-总之题目是根据候选人的回答动态变化的， 靠这种死记硬背只能证明你花时间准备了。</description>
+总之题目是根据候选人的回答动态变化的， 靠这种死记硬背只能证明你花时间准备了。
+简单的八股文背背就完事了。重要的是一定要和具体开发经验以及应用场景结合，一定要注意。例如问arraylist扩充，他会问你为什么要这么设计，问线程池参数的话，一定会继续问你实际开发中如何设置参数的，为什么要这么设置。后面的死锁，他可能会追问你项目中有没有遇到死锁，如何解决。</description>
     </item>
     
     <item>
