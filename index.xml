@@ -6,7 +6,7 @@
     <description>Recent content on JIeJaitt‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Dec 2022 14:41:33 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Dec 2022 19:51:31 +0800</lastBuildDate><atom:link href="https://jiejaitt.pages.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First ｜hugo原理理解</title>
       <link>https://jiejaitt.pages.dev/post/first.html</link>
@@ -14,6 +14,18 @@
       
       <guid>https://jiejaitt.pages.dev/post/first.html</guid>
       <description>Hello Hugo erblog.pages.dev https://www.elliot98.top/ https://dash.cloudflare.com/7c63601e43e79bf455b76fde5d8e4251 class Solution { public: double angleClock(int hour, int minutes) { double res; double res_hour = hour*30+minutes/2.0; double res_min = minutes * 6; res = max(res_hour,res_min) - min(res_hour,res_min); res = min(res,360-res); return res; } }; baseURL = &amp;#39;http://example.org/&amp;#39; title = &amp;#39;JIeJaitt‘s Blog&amp;#39; theme = &amp;#39;erblog&amp;#39; paginate = 3 languageCode = &amp;#39;en-us&amp;#39; DefaultContentLanguage = &amp;#34;en&amp;#34; footnoteReturnLinkContents = &amp;#34;^&amp;#34; uglyurls = true [permalinks] posts = &amp;#34;:slug&amp;#34; [blackfriday] extensionsmask = [&amp;#34;noIntraEmphasis&amp;#34;] fractions = false [markup.</description>
+    </item>
+    
+    <item>
+      <title>八股文的一些理解</title>
+      <link>https://jiejaitt.pages.dev/post/%E5%85%AB%E8%82%A1%E6%96%87%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3.html</link>
+      <pubDate>Fri, 23 Dec 2022 19:51:31 +0800</pubDate>
+      
+      <guid>https://jiejaitt.pages.dev/post/%E5%85%AB%E8%82%A1%E6%96%87%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3.html</guid>
+      <description>面试宝典现在叫八股文。说实话挺反感面试应届面这东西的。这些根本不算知识最多算知道。 你无法要求所有人都看过JDK源码， 能够明白工作原理或者快速设计一个类似的的时间就行了。 真正需要考核的是候选人是解决问题的能力， 知识面的广度以及特定场景技术选型的思路。
+这种八股文最多算一个门槛， 考察的是你至少肯花时间背了或者了解了。稍微有点经验的面试官就会根据你的回答深挖下去， 例如HashMap 候选人提到了红黑树， 那么就会顺着问红黑树左旋、右旋、变色相关的问题， 在询问红黑树和平衡二叉树的区别， 特定业务场景的选型。
+所以无论什么知识最重要的是结合业务，拥抱变化！
+总之题目是根据候选人的回答动态变化的， 靠这种死记硬背只能证明你花时间准备了。</description>
     </item>
     
     <item>
